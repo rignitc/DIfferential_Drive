@@ -1,0 +1,14 @@
+<launch>
+<!-- #http://wiki.ros.org/differential_drive  
+    This odom publishing use enc values only-->
+    <!-- <arg name="rviz_config" default="$(find jani_bot)sketches/Generate_odom/odom.rviz" /> -->
+
+    <node pkg="jani_bot" name="Odom_DD_pub" type="Odom_DD_pub.py" />
+    
+    <node pkg="rosserial_python" type="serial_node.py" name="serial_node" 
+        output="screen"    args="tcp"/>
+        
+    <!-- <node name="rviz" pkg="rviz" type="rviz" args="rviz_config" /> -->
+    <!-- <node name="rviz" pkg="rviz" type="rviz"  /> -->
+
+</launch>

@@ -1,0 +1,8 @@
+prefix=/home/ajin/rosws/devel
+
+Name: diff_drive
+Description: Description of diff_drive
+Version: 1.0.0
+Cflags: -I/home/ajin/rosws/devel/include
+Libs: -L${prefix}/lib 
+Requires: actionlib_msgs

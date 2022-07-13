@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<robot name="Jani" xmlns:xacro="http://www.ros.org/wiki/xacro">
+  
+  
+  <xacro:include filename="$(find jani_bot)/urdf/Jani_macros.xacro" />
+  <xacro:include filename="$(find jani_bot)/urdf/Jani_materials.xacro" />
+  <xacro:include filename="$(find jani_bot)/urdf/gazebo.xacro" />
+ 
+<!-- /////////////////////////////////////////////////////////////////-->
+<!-- chassis  {}{}{} its like a simple link as we are going to have only one Chassis no more-->
+<link name="odom_link"/>
+
+<!-- ///////////////////      Wheels >> Xacro power of cleaning      ///////////////////////   -->
+<!-- "origin_xyz" is for the Joint movement from origin and " origin_xyz_body " is body and joint distance created by stl model-->
+
+
+<!--
+  !!!!!! IMPORTANT STUF   !!!!!
+  1 -> This origin_xyz is from the parent link .... 
+
+  2 -> Scale is to make 3d model small other then that Try it because things GO WRONG 
+   explaination -> 3d models are in mm and that means 1000 times bigger representaiton without scale
+-->
+
+<xacro:Shapes name="Chassis" position_of_joint_from_parent_rpy="0 0 0" position_of_joint_from_parent_xyz="0 0 0.025 "  
+              mass="5" parent="odom"  scale="0.001 0.001 0.001  " body_to_joint_xyz="0 0 0" body_to_joint_rpy="0 0 0"
+              meshfile="package://jani_bot/meshes/chassis.stl" color="white"/>
+
+
+
+<xacro:Wheel name="Left"  position_of_joint_from_parent_xyz="-0.066 -0.04 -0.01"
+              color ="red" mass="2" scale="0.001 0.001 0.001  " body_to_joint_xyz= "0 0 0" body_to_joint_rpy="0 0 0"
+              meshfile="package://jani_bot/meshes/tire.stl" />
+<xacro:Wheel name="Right"  position_of_joint_from_parent_xyz="0.061 -0.04 -0.01"
+              color ="red" mass ="2" scale="0.001 0.001 0.001  " body_to_joint_xyz= "0 0 0" body_to_joint_rpy="0 0 0"
+              meshfile="package://jani_bot/meshes/tire.stl" />
+<xacro:Wheel name="Caster"  position_of_joint_from_parent_xyz="-0.005 0.067 -0.033"
+              color ="red" mass ="1" scale=" 0.001 0.001 0.001 " body_to_joint_xyz= "0 0 0  " body_to_joint_rpy="0 0 0"
+              meshfile="package://jani_bot/meshes/front_tire.stl" />
+
+
+
+</robot>

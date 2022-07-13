@@ -1,0 +1,2 @@
+agribot_des:diff_drive:jani_bot
+-DCATKIN_DEVEL_PREFIX=/home/ajin/rosws/devel -DCMAKE_INSTALL_PREFIX=/home/ajin/rosws/install -G Unix Makefiles

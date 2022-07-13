@@ -1,0 +1,24 @@
+<launch>
+<!-- 
+Launching the physical robot as well
+  
+  -->
+
+  <arg name="model" default="$(find jani_bot)/urdf/Jani.xacro"/>
+  <param name="robot_description" command="xacro $(arg model)"/>
+
+  <arg name="rviz_config" default="$(find jani_bot)/launch/odom_new.rviz" />
+
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"/>
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
+      respawn="false" output="screen">
+  </node>
+
+  <!-- <node name="rviz_" pkg="rviz" type="rviz" /> -->
+  <node name="rviz" pkg="rviz" type="rviz" args="rviz_config" />
+   <include file="$(find jani_bot)/sketches/Generate_odom/esp_to_ros_connect.launch"/>
+
+    <node name ="teleop_twist_keyboard_" pkg ="teleop_twist_keyboard" type="teleop_twist_keyboard.py"/>
+    
+
+</launch>

@@ -1,0 +1,25 @@
+  
+ 
+       
+        Download Arduino setup process
+            1- Download Arduino from website
+                a- watch to setup in linux > https://www.youtube.com/watch?v=wh6StlwDBo0
+                b - download esp32 lolin32 board
+    
+            2- Follow https://www.arduino.cc/en/guide/linux:
+            a- sudo adduser luqman  dialout
+            b- cd arduino directory ->  ./arduino-linux-setup.sh luqman
+
+            Giving Permanent Access to usb port communication (serial)
+            a- sudo chmod a+rw /dev/ttyUSB0
+            
+        Ros Packages Install :
+        - sudo apt-get install ros-melodic-teleop-twist-keyboard  
+        - sudo apt-get install ros-melodic-rosserial-server
+        - sudo apt-get install ros-melodic-rosserial-arduino 
+
+
+        After installing the packages :
+        cd arudino libraries -> 
+        - rosrun rosserial_arduino make_libraries.py /opt/arduino-1.8.10/libraries/
+ 
