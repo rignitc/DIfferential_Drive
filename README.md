@@ -1,4 +1,4 @@
-# Hardware used 
+# Hardware used for differential drive
 
 ## Cytron motor driver 
 ## Esp8266 (nodemcu)
